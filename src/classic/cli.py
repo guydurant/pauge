@@ -1,16 +1,16 @@
-from denovopocketmetrics.src.classic.vina_score import vina_score
-from denovopocketmetrics.src.classic.amino_acid_recovery import aarecovery
-from denovopocketmetrics.src.classic.missed_hydrogen_bonds import missed_hydrogen_bonds
-from denovopocketmetrics.src.classic.interaction_similarity import (
+from src.classic.vina_score import vina_score
+from src.classic.amino_acid_recovery import aarecovery
+from src.classic.missed_hydrogen_bonds import missed_hydrogen_bonds
+from src.classic.interaction_similarity import (
     interaction_similarity,
 )
-from denovopocketmetrics.src.utils.structure import get_molblocks
+from src.utils.structure import get_molblocks
 import pandas as pd
 from tqdm import tqdm
 import numpy as np
 import click
 from joblib import Parallel, delayed
-from denovopocketmetrics.src.utils.interface import (
+from src.utils.interface import (
     display_single_value,
     display_dataset_values,
 )

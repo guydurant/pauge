@@ -1,6 +1,6 @@
 import pandas as pd
 import click
-from denovopocketmetrics.src.utils.interactions import (
+from src.utils.interactions import (
     prepare_plipobj,
     get_interactions,
     filter_out_backbone_interactions,

@@ -1,0 +1,2 @@
+pauge_classic -g test_cases/generated_protein.pdb -l test_cases/generated_ligand.sdf -t test_cases/ground_truth_protein.pdb -p test_cases/ground_truth_ligand.sdf
+pauge_plausability -g test_cases/generated_protein.pdb -l test_cases/generated_ligand.sdf 

@@ -1,7 +1,7 @@
 from Bio import PDB
 import io
 import numpy as np
-from denovopocketmetrics.src.utils.structure import get_molblocks
+from src.utils.structure import get_molblocks
 
 AA = [
     "ALA",
@@ -103,7 +103,7 @@ def aarecovery(
 
 if __name__ == "__main__":
     import click
-    from denovopocketmetrics.src.utils.interface import display_single_value
+    from src.utils.interface import display_single_value
 
     @click.command()
     @click.option(

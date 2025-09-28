@@ -1,7 +1,4 @@
-from Bio import PDB
-import io
-import numpy as np
-from denovopocketmetrics.src.utils.interactions import get_interactions, prepare_plipobj
+from src.utils.interactions import get_interactions, prepare_plipobj
 
 from warnings import filterwarnings
 
@@ -60,7 +57,7 @@ def interaction_similarity(
 
 if __name__ == "__main__":
     import click
-    from denovopocketmetrics.src.utils.interface import display_single_value
+    from src.utils.interface import display_single_value
 
     @click.command()
     @click.option(

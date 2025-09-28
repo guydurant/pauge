@@ -1,8 +1,8 @@
-from denovopocketmetrics.src.utils.interactions import prepare_plipobj, get_interactions
-from denovopocketmetrics.src.utils.structure import read_rdkit
+from src.utils.interactions import prepare_plipobj, get_interactions
+from src.utils.structure import read_rdkit
 from rdkit.Chem.rdMolDescriptors import CalcNumHBD, CalcNumHBA
 import click
-from denovopocketmetrics.src.utils.interface import display_single_value
+from src.utils.interface import display_single_value
 
 
 def get_hbonds(

@@ -70,7 +70,7 @@ def vina_score(generated_prot_file, ligand_code, ligand_file=None):
 
 if __name__ == "__main__":
     import click
-    from denovopocketmetrics.src.utils.interface import display_single_value
+    from src.utils.interface import display_single_value
 
     @click.command()
     @click.option(

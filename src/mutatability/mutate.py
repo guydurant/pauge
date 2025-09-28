@@ -3,10 +3,11 @@ from rdkit.Chem import AllChem, rdFMCS
 import pandas as pd
 from molecular_rectifier import Rectifier
 import click
-from denovopocketmetrics.src.utils.interactions import prepare_plipobj, get_interactions
-from denovopocketmetrics.src.mutatability.commands import commands
+from src.utils.interactions import prepare_plipobj, get_interactions
+from src.mutatability.commands import commands
 from tqdm import tqdm
 import os
+
 RDLogger.DisableLog("rdApp.*")  # Disable RDKit warnings
 
 MUTATION = {
@@ -170,14 +171,19 @@ def design_for_mutant(
 ):
     command = commands[model]
     mutant_mols = mutate_all(
-        generated_protein_file, generated_ligand_file, ground_truth_ligand_file, mutation_type
+        generated_protein_file,
+        generated_ligand_file,
+        ground_truth_ligand_file,
+        mutation_type,
     )
     for key, ligand in mutant_mols.items():
         mutant_ligand_file = f"{out_folder}/{key}.sdf"
         Chem.MolToMolFile(ligand, mutant_ligand_file)
         if not os.path.exists(f"{out_folder}/{key}"):
             os.makedirs(f"{out_folder}/{key}")
-        if os.path.exists(f"{out_folder}/{key}" + "/packed/input_packed_1_1.pdb") or os.path.exists(f"{out_folder}/{key}"+ "/0_whole.pdb"):
+        if os.path.exists(
+            f"{out_folder}/{key}" + "/packed/input_packed_1_1.pdb"
+        ) or os.path.exists(f"{out_folder}/{key}" + "/0_whole.pdb"):
             # print(f"Aleady designed {key}")
             continue
         complete_command = command(
@@ -188,7 +194,13 @@ def design_for_mutant(
 
 @click.command()
 @click.option("--model", type=str, help="The model to use for design", required=True)
-@click.option("--mutation_type", type=str, help="The mutation type", required=True, default="change")
+@click.option(
+    "--mutation_type",
+    type=str,
+    help="The mutation type",
+    required=True,
+    default="change",
+)
 @click.option(
     "--generated_protein_file",
     type=str,

@@ -1,0 +1,2 @@
+code,ligand,protein,ground_truth_ligand,ground_truth_protein
+test,generated_ligand.sdf,generated_protein.pdb,ground_truth_ligand.sdf,ground_truth_protein.pdb

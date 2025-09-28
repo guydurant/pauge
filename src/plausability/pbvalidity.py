@@ -5,6 +5,7 @@ from pathlib import Path
 from posebusters import PoseBusters
 import os
 from typing import List, Tuple
+
 RDLogger.DisableLog("rdApp.*")
 
 
@@ -66,7 +67,7 @@ def bust_complex(
 
 if __name__ == "__main__":
     import click
-    from denovopocketmetrics.src.utils.interface import display_single_value
+    from src.utils.interface import display_single_value
 
     @click.command()
     @click.option(

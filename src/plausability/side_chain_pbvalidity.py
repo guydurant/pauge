@@ -1,9 +1,7 @@
-from denovopocketmetrics.src.utils.structure import get_molblocks
+from src.utils.structure import get_molblocks
 from posebusters import PoseBusters
 from rdkit import Chem
 from rdkit.Chem import AllChem
-import os
-from rdkit import RDLogger
 
 
 AMINO_ACID_SMILES = {
@@ -99,17 +97,15 @@ def bust_side_chains(
                 if False in df[col].values:
                     fail = True
             if fail:
-                print("Failing side chain: ", aa, [i for i in df.columns if False in df[i].values])
                 gen_posebusters += 1
         except Exception as e:
-            print("Error in PoseBusters: ", e, gen_amino_acids[aa])
             gen_posebusters += 1
     return 1 - gen_posebusters / len(gen_amino_acids)
 
 
 if __name__ == "__main__":
     import click
-    from denovopocketmetrics.src.utils.interface import display_single_value
+    from src.utils.interface import display_single_value
 
     @click.command()
     @click.option(
